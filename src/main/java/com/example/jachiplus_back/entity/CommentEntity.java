@@ -4,6 +4,7 @@ import lombok.*;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Builder
@@ -15,8 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "comment")
-
-public class CommentEntity {
+@IdClass(UserId.class)
+public class CommentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
