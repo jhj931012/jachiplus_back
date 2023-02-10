@@ -1,8 +1,6 @@
 package com.example.jachiplus_back.service;
 
-import com.example.jachiplus_back.dto.LoginResponseDTO;
-import com.example.jachiplus_back.dto.UserSignUpRequestDTO;
-import com.example.jachiplus_back.dto.UserSignUpResponseDTO;
+import com.example.jachiplus_back.dto.*;
 import com.example.jachiplus_back.entity.UserEntity;
 import com.example.jachiplus_back.exception.DuplicatedEmailExeption;
 import com.example.jachiplus_back.exception.NoRegisteredArgumentsException;
@@ -12,6 +10,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -72,5 +73,7 @@ public class UserService {
 
         return new LoginResponseDTO(originalUser, token);
     }
+
+
 
 }

@@ -1,18 +1,19 @@
 package com.example.jachiplus_back.controller;
 
-import com.example.jachiplus_back.dto.LoginRequestDTO;
-import com.example.jachiplus_back.dto.LoginResponseDTO;
-import com.example.jachiplus_back.dto.UserSignUpRequestDTO;
-import com.example.jachiplus_back.dto.UserSignUpResponseDTO;
+import com.example.jachiplus_back.dto.*;
+import com.example.jachiplus_back.entity.UserEntity;
 import com.example.jachiplus_back.exception.DuplicatedEmailExeption;
 import com.example.jachiplus_back.exception.NoRegisteredArgumentsException;
 import com.example.jachiplus_back.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/jachi/user")
 public class UserController {
 
+    @Autowired
     private final UserService userService;
 
     @PostMapping("/signup")
@@ -80,5 +82,6 @@ public class UserController {
                     );
         }
     }
+
 
 }
